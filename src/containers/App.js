@@ -3,6 +3,7 @@ import classes from './App.css';
 import Person from '../components/Persons/Person/Person';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import WithClass from '../hoc/WithClass';
 
 class App extends PureComponent {
     constructor(props){
@@ -87,7 +88,7 @@ class App extends PureComponent {
 
 
     return (
-      <div className={classes.App}>
+      <WithClass classes={classes.App}>
         <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>
         <Cockpit
         showPersons={this.state.showPersons}
@@ -95,7 +96,7 @@ class App extends PureComponent {
         clicked={this.togglePersonsHandler}
         appTitle={this.props.title} />
         {persons}
-      </div>
+      </WithClass>
     );
   //return React.createElement('div', {className:'App'}, React.createElement('h1', null, 'Hi I\'m a React app!!!'));
   }
